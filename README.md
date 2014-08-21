@@ -1,4 +1,4 @@
-# imagemin-optipng [![Build Status](https://travis-ci.org/kevvaimagemin/imagemin-optipng.svg?branch=master)](https://travis-ci.org/imagemin/imagemin-optipng)
+# imagemin-optipng [![Build Status](https://travis-ci.org/imagemin/imagemin-optipng.svg?branch=master)](https://travis-ci.org/imagemin/imagemin-optipng)
 
 > optipng image-min plugin
 

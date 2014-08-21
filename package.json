@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha --reporter list"
+    "test": "node test/test.js"
   },
   "files": [
     "index.js"
@@ -33,6 +33,7 @@
     "optipng-bin": "^1.0.0"
   },
   "devDependencies": {
+    "ava": "0.0.4",
     "imagemin": "^1.0.3",
     "mocha": "^1.18.2"
   }
