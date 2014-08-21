@@ -12,30 +12,32 @@ var optipng = require('optipng-bin').path;
  */
 
 module.exports = function (opts) {
-    opts = opts || {};
+	opts = opts || {};
 
-    return function (file, imagemin, cb) {
-        if (imageType(file.contents) !== 'png') {
-            return cb();
-        }
+	return function (file, imagemin, cb) {
+		if (imageType(file.contents) !== 'png') {
+			cb();
+			return;
+		}
 
-        var exec = new ExecBuffer();
-        var args = ['-strip', 'all', '-quiet', '-clobber'];
-        var optimizationLevel = opts.optimizationLevel || 3;
+		var exec = new ExecBuffer();
+		var args = ['-strip', 'all', '-quiet', '-clobber'];
+		var optimizationLevel = opts.optimizationLevel || 3;
 
-        if (typeof optimizationLevel === 'number') {
-            args.push('-o', optimizationLevel);
-        }
+		if (typeof optimizationLevel === 'number') {
+			args.push('-o', optimizationLevel);
+		}
 
-        exec
-            .use(optipng, args.concat(['-out', exec.dest(), exec.src()]))
-            .run(file.contents, function (err, buf) {
-                if (err) {
-                    return cb(err);
-                }
+		exec
+			.use(optipng, args.concat(['-out', exec.dest(), exec.src()]))
+			.run(file.contents, function (err, buf) {
+				if (err) {
+					cb(err);
+					return;
+				}
 
-                file.contents = buf;
-                cb();
-            });
-    };
+				file.contents = buf;
+				cb();
+			});
+	};
 };

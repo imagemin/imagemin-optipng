@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "optipng image-min plugin",
   "license": "MIT",
-  "repository": "kevva/imagemin-optipng",
+  "repository": "imagemin/imagemin-optipng",
   "author": {
     "name": "Kevin Mårtensson",
     "email": "kevinmartensson@gmail.com",

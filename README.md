@@ -1,12 +1,14 @@
-# imagemin-optipng [![Build Status](https://travis-ci.org/kevva/imagemin-optipng.svg?branch=master)](https://travis-ci.org/kevva/imagemin-optipng)
+# imagemin-optipng [![Build Status](https://travis-ci.org/kevvaimagemin/imagemin-optipng.svg?branch=master)](https://travis-ci.org/imagemin/imagemin-optipng)
 
 > optipng image-min plugin
 
+
 ## Install
 
-```bash
+```sh
 $ npm install --save imagemin-optipng
 ```
+
 
 ## Usage
 
@@ -15,12 +17,13 @@ var Imagemin = require('image-min');
 var optipng = require('imagemin-optipng');
 
 var imagemin = new Imagemin()
-    .src('foo.png')
-    .dest('foo-optimized.png')
-    .use(optipng({ optimizationLevel: 3 }));
+	.src('foo.png')
+	.dest('foo-optimized.png')
+	.use(optipng({ optimizationLevel: 3 }));
 
 imagemin.optimize();
 ```
+
 
 ## Options
 
@@ -43,6 +46,7 @@ Level and trials:
 6. 120 trials
 7. 240 trials
 
+
 ## License
 
-MIT © [Kevin Mårtensson](https://github.com/kevva)
+MIT © [imagemin](https://github.com/imagemin)
