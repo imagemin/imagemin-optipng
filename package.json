@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "exec-buffer": "^0.1.0",
-    "image-type": "^0.1.1",
+    "is-png": "^1.0.0",
     "optipng-bin": "^0.3.3"
   },
   "devDependencies": {
