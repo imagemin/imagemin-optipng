@@ -28,12 +28,12 @@
     "png"
   ],
   "dependencies": {
-    "exec-buffer": "^0.1.0",
+    "exec-buffer": "^1.0.0",
     "is-png": "^1.0.0",
-    "optipng-bin": "^0.3.3"
+    "optipng-bin": "^1.0.0"
   },
   "devDependencies": {
-    "imagemin": "^0.4.6",
+    "imagemin": "^1.0.3",
     "mocha": "^1.18.2"
   }
 }
