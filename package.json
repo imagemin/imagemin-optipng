@@ -34,7 +34,6 @@
   },
   "devDependencies": {
     "ava": "0.0.4",
-    "imagemin": "^1.0.3",
-    "mocha": "^1.18.2"
+    "imagemin": "^1.0.3"
   }
 }
