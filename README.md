@@ -13,15 +13,34 @@ $ npm install --save imagemin-optipng
 ## Usage
 
 ```js
-var Imagemin = require('image-min');
+var Imagemin = require('imagemin');
 var optipng = require('imagemin-optipng');
 
 var imagemin = new Imagemin()
-	.src('foo.png')
-	.dest('foo-optimized.png')
+	.src('images/*.png')
+	.dest('build/images')
 	.use(optipng({ optimizationLevel: 3 }));
 
-imagemin.optimize();
+imagemin.run(function (err, files) {
+	if (err) {
+		throw err;
+	}
+
+	console.log('Files optimized successfully!'); 
+});
+```
+
+You can also use this plugin with [gulp](http://gulpjs.com):
+
+```js
+var gulp = require('gulp');
+var optipng = require('imagemin-optipng');
+
+gulp.task('default', function () {
+	return gulp.src('images/*.png')
+		.pipe(optipng({ optimizationLevel: 3 }))
+		.pipe(gulp.dest('build/images'));
+});
 ```
 
 

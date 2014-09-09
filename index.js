@@ -3,9 +3,10 @@
 var ExecBuffer = require('exec-buffer');
 var isPng = require('is-png');
 var optipng = require('optipng-bin').path;
+var through = require('through2');
 
 /**
- * optipng image-min plugin
+ * optipng imagemin plugin
  *
  * @param {Object} opts
  * @api public
@@ -14,7 +15,17 @@ var optipng = require('optipng-bin').path;
 module.exports = function (opts) {
 	opts = opts || {};
 
-	return function (file, imagemin, cb) {
+	return through.obj(function (file, enc, cb) {
+		if (file.isNull()) {
+			cb(null, file);
+			return;
+		}
+
+		if (file.isStream()) {
+			cb(new Error('Streaming is not supported'));
+			return;
+		}
+
 		if (!isPng(file.contents)) {
 			cb();
 			return;
@@ -37,7 +48,7 @@ module.exports = function (opts) {
 				}
 
 				file.contents = buf;
-				cb();
+				cb(null, file);
 			});
-	};
+	});
 };
