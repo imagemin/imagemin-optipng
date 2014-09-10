@@ -27,7 +27,7 @@ module.exports = function (opts) {
 		}
 
 		if (!isPng(file.contents)) {
-			cb();
+			cb(null, file);
 			return;
 		}
 
