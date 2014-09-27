@@ -20,11 +20,13 @@
   ],
   "keywords": [
     "compress",
+    "gulpplugin",
     "image",
     "imageminplugin",
     "img",
     "minify",
     "optimize",
+    "optipng",
     "png"
   ],
   "dependencies": {
