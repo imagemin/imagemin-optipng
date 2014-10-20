@@ -32,7 +32,7 @@
   "dependencies": {
     "exec-buffer": "^1.0.0",
     "is-png": "^1.0.0",
-    "optipng-bin": "^1.0.0",
+    "optipng-bin": "^2.0.0",
     "through2": "^0.6.1"
   },
   "devDependencies": {
