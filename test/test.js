@@ -10,7 +10,7 @@ test('optimize a PNG', function (t) {
 	t.plan(3);
 
 	read(path.join(__dirname, 'fixtures/test.png'), function (err, file) {
-		t.assert(!err);
+		t.assert(!err, err);
 
 		var stream = optipng();
 		var size = file.contents.length;
@@ -30,7 +30,7 @@ test('optimize a PNG using ctor', function (t) {
 	var Optipng = optipng.ctor();
 
 	read(path.join(__dirname, 'fixtures/test.png'), function (err, file) {
-		t.assert(!err);
+		t.assert(!err, err);
 
 		var stream = new Optipng();
 		var size = file.contents.length;
