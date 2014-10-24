@@ -38,7 +38,7 @@ var optipng = require('imagemin-optipng');
 
 gulp.task('default', function () {
 	return gulp.src('images/*.png')
-		.pipe(optipng({ optimizationLevel: 3 }))
+		.pipe(optipng({ optimizationLevel: 3 })())
 		.pipe(gulp.dest('build/images'));
 });
 ```
