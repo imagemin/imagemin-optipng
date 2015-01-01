@@ -1,4 +1,4 @@
-# imagemin-optipng [![Build Status](http://img.shields.io/travis/imagemin/imagemin-optipng.svg?style=flat)](https://travis-ci.org/imagemin/imagemin-optipng) [![Build status](https://ci.appveyor.com/api/projects/status/4e5msglic4m7yxst)](https://ci.appveyor.com/project/ShinnosukeWatanabe/imagemin-optipng)
+# imagemin-optipng [![Build Status](http://img.shields.io/travis/imagemin/imagemin-optipng.svg?style=flat)](https://travis-ci.org/imagemin/imagemin-optipng) [![Build status](https://ci.appveyor.com/api/projects/status/4e5msglic4m7yxst?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/imagemin-optipng)
 
 > optipng image-min plugin
 
