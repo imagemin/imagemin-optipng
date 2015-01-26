@@ -32,8 +32,8 @@ module.exports = function (opts) {
 		}
 
 		var exec = new ExecBuffer();
-		var args = ['-strip', 'all', '-quiet', '-clobber'];
-		var optimizationLevel = opts.optimizationLevel || 3;
+		var args = ['-strip', 'all', '-clobber', '-force', '-fix'];
+		var optimizationLevel = opts.optimizationLevel || 2;
 
 		if (typeof optimizationLevel === 'number') {
 			args.push('-o', optimizationLevel);

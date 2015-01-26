@@ -49,7 +49,7 @@ gulp.task('default', function () {
 ### optimizationLevel
 
 Type: `Number`  
-Default: `3`
+Default: `2`
 
 Select an optimization level between `0` and `7`.
 
