@@ -5,17 +5,10 @@ var isPng = require('is-png');
 var optipng = require('optipng-bin').path;
 var through = require('through2');
 
-/**
- * optipng imagemin plugin
- *
- * @param {Object} opts
- * @api public
- */
-
 module.exports = function (opts) {
 	opts = opts || {};
 
-	return through.ctor({ objectMode: true }, function (file, enc, cb) {
+	return through.ctor({objectMode: true}, function (file, enc, cb) {
 		if (file.isNull()) {
 			cb(null, file);
 			return;
@@ -31,7 +24,7 @@ module.exports = function (opts) {
 			return;
 		}
 
-		var exec = new ExecBuffer();
+		var execBuffer = new ExecBuffer();
 		var args = ['-strip', 'all', '-clobber', '-force', '-fix'];
 		var optimizationLevel = opts.optimizationLevel || 2;
 
@@ -39,8 +32,8 @@ module.exports = function (opts) {
 			args.push('-o', optimizationLevel);
 		}
 
-		exec
-			.use(optipng, args.concat(['-out', exec.dest(), exec.src()]))
+		execBuffer
+			.use(optipng, args.concat(['-out', execBuffer.dest(), execBuffer.src()]))
 			.run(file.contents, function (err, buf) {
 				if (err) {
 					cb(err);

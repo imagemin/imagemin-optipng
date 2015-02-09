@@ -19,14 +19,14 @@ var optipng = require('imagemin-optipng');
 var imagemin = new Imagemin()
 	.src('images/*.png')
 	.dest('build/images')
-	.use(optipng({ optimizationLevel: 3 }));
+	.use(optipng({optimizationLevel: 3}));
 
 imagemin.run(function (err, files) {
 	if (err) {
 		throw err;
 	}
 
-	console.log('Files optimized successfully!'); 
+	console.log('Files optimized successfully!');
 });
 ```
 
@@ -38,7 +38,7 @@ var optipng = require('imagemin-optipng');
 
 gulp.task('default', function () {
 	return gulp.src('images/*.png')
-		.pipe(optipng({ optimizationLevel: 3 })())
+		.pipe(optipng({optimizationLevel: 3})())
 		.pipe(gulp.dest('build/images'));
 });
 ```
