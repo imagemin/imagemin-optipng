@@ -5,7 +5,7 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save imagemin-optipng
 ```
 
@@ -14,41 +14,36 @@ $ npm install --save imagemin-optipng
 
 ```js
 var Imagemin = require('imagemin');
-var optipng = require('imagemin-optipng');
+var imageminOptipng = require('imagemin-optipng');
 
-var imagemin = new Imagemin()
+new Imagemin()
 	.src('images/*.png')
 	.dest('build/images')
-	.use(optipng({optimizationLevel: 3}));
-
-imagemin.run(function (err, files) {
-	if (err) {
-		throw err;
-	}
-
-	console.log('Files optimized successfully!');
-});
+	.use(imageminOptipng({optimizationLevel: 3}))
+	.run();
 ```
 
 You can also use this plugin with [gulp](http://gulpjs.com):
 
 ```js
 var gulp = require('gulp');
-var optipng = require('imagemin-optipng');
+var imageminOptipng = require('imagemin-optipng');
 
 gulp.task('default', function () {
 	return gulp.src('images/*.png')
-		.pipe(optipng({optimizationLevel: 3})())
+		.pipe(imageminOptipng({optimizationLevel: 3})())
 		.pipe(gulp.dest('build/images'));
 });
 ```
 
 
-## Options
+## API
 
-### optimizationLevel
+### imageminOptipng(options)
 
-Type: `Number`  
+#### options.optimizationLevel
+
+Type: `number`  
 Default: `2`
 
 Select an optimization level between `0` and `7`.
