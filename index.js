@@ -36,6 +36,7 @@ module.exports = function (opts) {
 			.use(optipng, args.concat(['-out', execBuffer.dest(), execBuffer.src()]))
 			.run(file.contents, function (err, buf) {
 				if (err) {
+					err.fileName = file.path;
 					cb(err);
 					return;
 				}
