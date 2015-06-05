@@ -2,7 +2,7 @@
 
 var ExecBuffer = require('exec-buffer');
 var isPng = require('is-png');
-var optipng = require('optipng-bin').path;
+var optipng = require('optipng-bin');
 var through = require('through2');
 
 module.exports = function (opts) {
