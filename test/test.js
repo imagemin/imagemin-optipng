@@ -1,15 +1,14 @@
 'use strict';
-
 var path = require('path');
 var isPng = require('is-png');
-var read = require('vinyl-file').read;
+var vinylFile = require('vinyl-file');
 var test = require('ava');
 var imageminOptipng = require('../');
 
 test('optimize a PNG', function (t) {
 	t.plan(3);
 
-	read(path.join(__dirname, 'fixtures/test.png'), function (err, file) {
+	vinylFile.read(path.join(__dirname, 'fixtures/test.png'), function (err, file) {
 		t.assert(!err, err);
 
 		var stream = imageminOptipng()();

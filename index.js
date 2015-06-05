@@ -1,5 +1,4 @@
 'use strict';
-
 var ExecBuffer = require('exec-buffer');
 var isPng = require('is-png');
 var optipng = require('optipng-bin');
