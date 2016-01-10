@@ -22,3 +22,21 @@ test('optimize a PNG', function (t) {
 		stream.end(file);
 	});
 });
+
+test('interlace a PNG', function (t) {
+	t.plan(2);
+
+	vinylFile.read(path.join(__dirname, 'fixtures/test.png'), function (err, file) {
+		t.assert(!err, err);
+
+		var stream = imageminOptipng({
+			interlaced: true
+		})();
+
+		stream.on('data', function (data) {
+			t.assert(isPng(data.contents));
+		});
+
+		stream.end(file);
+	});
+});
