@@ -1,24 +1,18 @@
-'use strict';
-var path = require('path');
-var isPng = require('is-png');
-var vinylFile = require('vinyl-file');
-var test = require('ava');
-var imageminOptipng = require('../');
+import path from 'path';
+import isPng from 'is-png';
+import vinylFile from 'vinyl-file';
+import test from 'ava';
+import imageminOptipng from '../';
 
-test('optimize a PNG', function (t) {
-	t.plan(3);
+test('optimize a PNG', async function (t) {
+	const stream = imageminOptipng()();
+	const file = await vinylFile.read(path.join(__dirname, 'fixtures/test.png'));
+	const size = file.contents.length;
 
-	vinylFile.read(path.join(__dirname, 'fixtures/test.png'), function (err, file) {
-		t.assert(!err, err);
-
-		var stream = imageminOptipng()();
-		var size = file.contents.length;
-
-		stream.on('data', function (data) {
-			t.assert(data.contents.length < size, data.contents.length);
-			t.assert(isPng(data.contents));
-		});
-
-		stream.end(file);
+	stream.on('data', data => {
+		t.ok(data.contents.length < size, data.contents.length);
+		t.true(isPng(data.contents));
 	});
+
+	stream.end(file);
 });

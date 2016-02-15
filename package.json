@@ -24,7 +24,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && node test/test.js"
+    "test": "xo && ava"
   },
   "files": [
     "index.js"
@@ -47,8 +47,8 @@
     "through2": "^2.0.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4",
-    "vinyl-file": "^1.1.0",
+    "ava": "*",
+    "vinyl-file": "^2.0.0",
     "xo": "*"
   }
 }
