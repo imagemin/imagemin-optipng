@@ -27,6 +27,10 @@ module.exports = function (opts) {
 		var args = ['-strip', 'all', '-clobber', '-force', '-fix'];
 		var optimizationLevel = opts.optimizationLevel || 2;
 
+		if (opts.interlaced) {
+			args.push('-i', '1');
+		}
+
 		if (typeof optimizationLevel === 'number') {
 			args.push('-o', optimizationLevel);
 		}
