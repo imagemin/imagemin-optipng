@@ -27,42 +27,42 @@ module.exports = function (opts) {
 		var args = ['-strip', 'all', '-clobber', '-force', '-fix'];
 		var optimizationLevel = opts.optimizationLevel || 2;
 		// −nb: Do not apply bit depth reduction
-		var reduceBitDepth = opts.reduceBitDepth || true;
+		var keepBitDepth = opts.keepBitDepth || false;
 		// −nc: Do not apply color type reduction
-		var reduceColorType = opts.reduceColorType || true;
+		var keepColorType = opts.keepColorType || false;
 		// −np: Do not apply palette reduction
-		var reducePalette = opts.reducePalette || true;
+		var keepPalette = opts.keepPalette || false;
 		// −nz: Do not recode IDAT datastreams
-		var reduceIDAT = opts.reduceIDAT || true;
+		var keepIDAT = opts.keepIDAT || false;
 
 		if (typeof optimizationLevel === 'number') {
 			args.push('-o', optimizationLevel);
 		}
 
 		// reduce bit depth
-		if (typeof reduceBitDepth === 'boolean') {
-			if (!reduceBitDepth) {
+		if (typeof keepBitDepth === 'boolean') {
+			if (keepBitDepth === true) {
 				args.push('-nb');
 			}
 		}
 
 		// reduce color type
-		if (typeof reduceColorType === 'boolean') {
-			if (!reduceColorType) {
+		if (typeof keepColorType === 'boolean') {
+			if (keepColorType === true) {
 				args.push('-nc');
 			}
 		}
 
 		// reduce palette
-		if (typeof reducePalette === 'boolean') {
-			if (!reducePalette) {
+		if (typeof keepPalette === 'boolean') {
+			if (keepPalette === true) {
 				args.push('-np');
 			}
 		}
 
 		// reduce IDAT
-		if (typeof reduceIDAT === 'boolean') {
-			if (!reduceIDAT) {
+		if (typeof keepIDAT === 'boolean') {
+			if (keepIDAT === true) {
 				args.push('-nz');
 			}
 		}
