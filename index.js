@@ -26,9 +26,45 @@ module.exports = function (opts) {
 		var execBuffer = new ExecBuffer();
 		var args = ['-strip', 'all', '-clobber', '-force', '-fix'];
 		var optimizationLevel = opts.optimizationLevel || 2;
+		// −nb: Do not apply bit depth reduction
+		var reduceBitDepth = opts.reduceBitDepth || true;
+		// −nc: Do not apply color type reduction
+		var reduceColorType = opts.reduceColorType || true;
+		// −np: Do not apply palette reduction
+		var reducePalette = opts.reducePalette || true;
+		// −nz: Do not recode IDAT datastreams
+		var reduceIDAT = opts.reduceIDAT || true;
 
 		if (typeof optimizationLevel === 'number') {
 			args.push('-o', optimizationLevel);
+		}
+
+		// reduce bit depth
+		if (typeof reduceBitDepth === 'boolean') {
+			if (!reduceBitDepth) {
+				args.push('-nb');
+			}
+		}
+
+		// reduce color type
+		if (typeof reduceColorType === 'boolean') {
+			if (!reduceColorType) {
+				args.push('-nc');
+			}
+		}
+
+		// reduce palette
+		if (typeof reducePalette === 'boolean') {
+			if (!reducePalette) {
+				args.push('-np');
+			}
+		}
+
+		// reduce IDAT
+		if (typeof reduceIDAT === 'boolean') {
+			if (!reduceIDAT) {
+				args.push('-nz');
+			}
 		}
 
 		execBuffer
