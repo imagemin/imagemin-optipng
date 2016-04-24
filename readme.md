@@ -24,7 +24,7 @@ imagemin('images/*.png', 'build/images', {use: [imageminOptipng()]}).then(() => 
 
 ## API
 
-### imageminOptipng(options)(buffer)
+### imageminOptipng([options])(buffer)
 
 Returns a promise for a buffer.
 
@@ -32,7 +32,7 @@ Returns a promise for a buffer.
 
 ##### optimizationLevel
 
-Type: `number`  
+Type: `number`<br>
 Default: `2`
 
 Select an optimization level between `0` and `7`.
