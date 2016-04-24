@@ -13,35 +13,24 @@ $ npm install --save imagemin-optipng
 ## Usage
 
 ```js
-var Imagemin = require('imagemin');
-var imageminOptipng = require('imagemin-optipng');
+const imagemin = require('imagemin');
+const imageminOptipng = require('imagemin-optipng');
 
-new Imagemin()
-	.src('images/*.png')
-	.dest('build/images')
-	.use(imageminOptipng({optimizationLevel: 3}))
-	.run();
-```
-
-You can also use this plugin with [gulp](http://gulpjs.com):
-
-```js
-var gulp = require('gulp');
-var imageminOptipng = require('imagemin-optipng');
-
-gulp.task('default', function () {
-	return gulp.src('images/*.png')
-		.pipe(imageminOptipng({optimizationLevel: 3})())
-		.pipe(gulp.dest('build/images'));
+imagemin('images/*.png', 'build/images', {use: [imageminOptipng()]}).then(() => {
+	console.log('Images optimized');
 });
 ```
 
 
 ## API
 
-### imageminOptipng(options)
+### imageminOptipng(options)(buffer)
 
-#### options.optimizationLevel
+Returns a promise for a buffer.
+
+#### options
+
+##### optimizationLevel
 
 Type: `number`  
 Default: `2`
@@ -59,6 +48,12 @@ Level and trials:
 5. 48 trials
 6. 120 trials
 7. 240 trials
+
+#### buffer
+
+Type: `buffer`
+
+Buffer to optimize.
 
 
 ## License

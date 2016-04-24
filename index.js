@@ -1,50 +1,31 @@
 'use strict';
-var ExecBuffer = require('exec-buffer');
-var isPng = require('is-png');
-var optipng = require('optipng-bin');
-var through = require('through2');
+const execBuffer = require('exec-buffer');
+const isPng = require('is-png');
+const optipng = require('optipng-bin');
 
-module.exports = function (opts) {
-	opts = opts || {};
+module.exports = opts => buf => {
+	opts = Object.assign({optimizationLevel: 2}, opts);
 
-	return through.ctor({objectMode: true}, function (file, enc, cb) {
-		if (file.isNull()) {
-			cb(null, file);
-			return;
-		}
+	if (!isPng(buf)) {
+		return Promise.resolve(buf);
+	}
 
-		if (file.isStream()) {
-			cb(new Error('Streaming is not supported'));
-			return;
-		}
+	const args = [
+		'-strip', 'all',
+		'-clobber',
+		'-force',
+		'-fix',
+		'-o', opts.optimizationLevel,
+		'-out', execBuffer.output,
+		execBuffer.input
+	];
 
-		if (!isPng(file.contents)) {
-			cb(null, file);
-			return;
-		}
-
-		var execBuffer = new ExecBuffer();
-		var args = ['-strip', 'all', '-clobber', '-force', '-fix'];
-		var optimizationLevel = opts.optimizationLevel || 2;
-
-		if (typeof optimizationLevel === 'number') {
-			args.push('-o', optimizationLevel);
-		}
-
-		execBuffer
-			.use(optipng, args.concat(['-out', execBuffer.dest(), execBuffer.src()]))
-			.run(file.contents, function (err, buf) {
-				if (err) {
-					err.fileName = file.path;
-					cb(err);
-					return;
-				}
-
-				if (buf.length < file.contents.length) {
-					file.contents = buf;
-				}
-
-				cb(null, file);
-			});
+	return execBuffer({
+		input: buf,
+		bin: optipng,
+		args
+	}).catch(err => {
+		err.message = err.stderr || err.message;
+		throw err;
 	});
 };
