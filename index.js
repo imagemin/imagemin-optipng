@@ -6,6 +6,10 @@ const optipng = require('optipng-bin');
 module.exports = opts => buf => {
 	opts = Object.assign({optimizationLevel: 2}, opts);
 
+	if (!Buffer.isBuffer(buf)) {
+		return Promise.reject(new TypeError('Expected a buffer'));
+	}
+
 	if (!isPng(buf)) {
 		return Promise.resolve(buf);
 	}
