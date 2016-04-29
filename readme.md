@@ -16,7 +16,7 @@ $ npm install --save imagemin-optipng
 const imagemin = require('imagemin');
 const imageminOptipng = require('imagemin-optipng');
 
-imagemin('images/*.png', 'build/images', {use: [imageminOptipng()]}).then(() => {
+imagemin(['images/*.png'], 'build/images', {use: [imageminOptipng()]}).then(() => {
 	console.log('Images optimized');
 });
 ```
