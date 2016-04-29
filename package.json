@@ -21,7 +21,7 @@
     }
   ],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo && ava"
@@ -31,7 +31,6 @@
   ],
   "keywords": [
     "compress",
-    "gulpplugin",
     "image",
     "imageminplugin",
     "img",
@@ -41,14 +40,16 @@
     "png"
   ],
   "dependencies": {
-    "exec-buffer": "^2.0.0",
+    "exec-buffer": "^3.0.0",
     "is-png": "^1.0.0",
-    "optipng-bin": "^3.0.0",
-    "through2": "^2.0.0"
+    "optipng-bin": "^3.0.0"
   },
   "devDependencies": {
     "ava": "*",
-    "vinyl-file": "^2.0.0",
+    "pify": "^2.3.0",
     "xo": "*"
+  },
+  "xo": {
+    "esnext": true
   }
 }
