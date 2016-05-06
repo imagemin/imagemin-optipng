@@ -33,7 +33,7 @@ Returns a promise for a buffer.
 ##### optimizationLevel
 
 Type: `number`<br>
-Default: `2`
+Default: `3`
 
 Select an optimization level between `0` and `7`.
 
