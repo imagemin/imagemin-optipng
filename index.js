@@ -17,7 +17,6 @@ module.exports = opts => buf => {
 	const args = [
 		'-strip', 'all',
 		'-clobber',
-		'-force',
 		'-fix',
 		'-o', opts.optimizationLevel,
 		'-out', execBuffer.output,
