@@ -26,7 +26,7 @@ imagemin(['images/*.png'], 'build/images', {use: [imageminOptipng()]}).then(() =
 
 ### imageminOptipng([options])(buffer)
 
-Returns a promise for a buffer.
+Returns a `Promise` for a `Buffer`.
 
 #### options
 
@@ -72,7 +72,7 @@ Apply palette reduction.
 
 #### buffer
 
-Type: `buffer`
+Type: `Buffer`
 
 Buffer to optimize.
 
