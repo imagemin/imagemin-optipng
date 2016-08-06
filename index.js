@@ -6,9 +6,9 @@ const optipng = require('optipng-bin');
 module.exports = opts => buf => {
 	opts = Object.assign({
 		optimizationLevel: 3,
-		enableBitDepthReduction: true,
-		enableColorTypeReduction: true,
-		enablePaletteReduction: true
+		bitDepthReduction: true,
+		colorTypeReduction: true,
+		paletteReduction: true
 	}, opts);
 
 	if (!Buffer.isBuffer(buf)) {
@@ -29,15 +29,15 @@ module.exports = opts => buf => {
 		execBuffer.input
 	];
 
-	if (!opts.enableBitDepthReduction) {
+	if (!opts.bitDepthReduction) {
 		args.push('−nb');
 	}
 
-	if (!opts.enableColorTypeReduction) {
+	if (!opts.colorTypeReduction) {
 		args.push('−nc');
 	}
 
-	if (!opts.enablePaletteReduction) {
+	if (!opts.paletteReduction) {
 		args.push('−np');
 	}
 
