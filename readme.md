@@ -49,6 +49,27 @@ Level and trials:
 6. 120 trials
 7. 240 trials
 
+##### bitDepthReduction
+
+Type: `boolean`<br>
+Default: `true`
+
+Apply bit depth reduction.
+
+##### colorTypeReduction
+
+Type: `boolean`<br>
+Default: `true`
+
+Apply color type reduction.
+
+##### paletteReduction
+
+Type: `boolean`<br>
+Default: `true`
+
+Apply palette reduction.
+
 #### buffer
 
 Type: `buffer`
