@@ -49,21 +49,21 @@ Level and trials:
 6. 120 trials
 7. 240 trials
 
-##### enableBitDepthReduction
+##### bitDepthReduction
 
 Type: `boolean`<br>
 Default: `true`
 
 Apply bit depth reduction.
 
-##### enableColorTypeReduction
+##### colorTypeReduction
 
 Type: `boolean`<br>
 Default: `true`
 
 Apply color type reduction.
 
-##### enablePaletteReduction
+##### paletteReduction
 
 Type: `boolean`<br>
 Default: `true`
