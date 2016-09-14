@@ -29,15 +29,15 @@ module.exports = opts => buf => {
 	];
 
 	if (!opts.bitDepthReduction) {
-		args.push('−nb');
+		args.push('-nb');
 	}
 
 	if (!opts.colorTypeReduction) {
-		args.push('−nc');
+		args.push('-nc');
 	}
 
 	if (!opts.paletteReduction) {
-		args.push('−np');
+		args.push('-np');
 	}
 
 	return execBuffer({
