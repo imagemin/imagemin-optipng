@@ -24,8 +24,7 @@ module.exports = opts => buf => {
 		'-clobber',
 		'-fix',
 		'-o', opts.optimizationLevel,
-		'-out', execBuffer.output,
-		execBuffer.input
+		'-out', execBuffer.output
 	];
 
 	if (!opts.bitDepthReduction) {
@@ -39,6 +38,8 @@ module.exports = opts => buf => {
 	if (!opts.paletteReduction) {
 		args.push('-np');
 	}
+
+	args.push(execBuffer.input);
 
 	return execBuffer({
 		input: buf,
