@@ -24,21 +24,22 @@ module.exports = opts => buf => {
 		'-clobber',
 		'-fix',
 		'-o', opts.optimizationLevel,
-		'-out', execBuffer.output,
-		execBuffer.input
+		'-out', execBuffer.output
 	];
 
 	if (!opts.bitDepthReduction) {
-		args.push('−nb');
+		args.push('-nb');
 	}
 
 	if (!opts.colorTypeReduction) {
-		args.push('−nc');
+		args.push('-nc');
 	}
 
 	if (!opts.paletteReduction) {
-		args.push('−np');
+		args.push('-np');
 	}
+
+	args.push(execBuffer.input);
 
 	return execBuffer({
 		input: buf,
