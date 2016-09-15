@@ -5,13 +5,14 @@ import pify from 'pify';
 import test from 'ava';
 import m from './';
 
-let buf;
-let badBuf;
 const fsP = pify(fs);
+
+let buf;
+let corrupt;
 
 test.before(async () => {
 	buf = await fsP.readFile(path.join(__dirname, 'fixture.png'));
-	badBuf = await fsP.readFile(path.join(__dirname, 'fixture-corrupt.png'));
+	corrupt = await fsP.readFile(path.join(__dirname, 'fixture-corrupt.png'));
 });
 
 test('optimize a PNG', async t => {
@@ -25,12 +26,17 @@ test('throw on empty input', t => {
 });
 
 test('throw on corrupt image', t => {
-	t.throws(m()(badBuf), /PNG file appears to be corrupted by text file conversions/);
+	t.throws(m()(corrupt), /PNG file appears to be corrupted by text file conversions/);
 });
 
-['bitDepthReduction', 'colorTypeReduction', 'paletteReduction'].forEach(key =>
-	test(`using ${key} doesn't throw`, t => {
-		t.notThrows(m({[key]: true})(buf));
-		t.notThrows(m({[key]: false})(buf));
-	})
-);
+test('bitDepthReduction', async t => {
+	t.notThrows(m({bitDepthReduction: true})(buf));
+});
+
+test('colorTypeReduction', async t => {
+	t.notThrows(m({colorTypeReduction: true})(buf));
+});
+
+test('paletteReduction', async t => {
+	t.notThrows(m({paletteReduction: true})(buf));
+});
