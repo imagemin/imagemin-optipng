@@ -45,6 +45,8 @@ module.exports = opts => buf => {
 		input: buf,
 		bin: optipng,
 		args
+	}).then(data => {
+		return buf.length < data.length ? buf : data;
 	}).catch(err => {
 		err.message = err.stderr || err.message;
 		throw err;
