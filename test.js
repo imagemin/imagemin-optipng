@@ -30,13 +30,13 @@ test('throw on corrupt image', t => {
 });
 
 test('bitDepthReduction', async t => {
-	t.notThrows(m({bitDepthReduction: true})(buf));
+	await t.notThrows(m({bitDepthReduction: true})(buf));
 });
 
 test('colorTypeReduction', async t => {
-	t.notThrows(m({colorTypeReduction: true})(buf));
+	await t.notThrows(m({colorTypeReduction: true})(buf));
 });
 
 test('paletteReduction', async t => {
-	t.notThrows(m({paletteReduction: true})(buf));
+	await t.notThrows(m({paletteReduction: true})(buf));
 });
