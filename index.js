@@ -8,7 +8,9 @@ module.exports = opts => buf => {
 		optimizationLevel: 3,
 		bitDepthReduction: true,
 		colorTypeReduction: true,
-		paletteReduction: true
+		paletteReduction: true,
+		progressive: true,
+		interlaced: false
 	}, opts);
 
 	if (!Buffer.isBuffer(buf)) {
@@ -29,6 +31,10 @@ module.exports = opts => buf => {
 
 	if (!opts.bitDepthReduction) {
 		args.push('-nb');
+	}
+
+	if (opts.interlaced || !opts.progressive) {
+		args.push('-i', '1');
 	}
 
 	if (!opts.colorTypeReduction) {
