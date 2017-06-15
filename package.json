@@ -42,14 +42,10 @@
   "dependencies": {
     "exec-buffer": "^3.0.0",
     "is-png": "^1.0.0",
-    "optipng-bin": "^3.0.0"
+    "optipng-bin": "^4.0.0"
   },
   "devDependencies": {
     "ava": "*",
-    "pify": "^2.3.0",
     "xo": "*"
-  },
-  "xo": {
-    "esnext": true
   }
 }
