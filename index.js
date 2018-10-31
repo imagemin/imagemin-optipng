@@ -20,11 +20,14 @@ module.exports = opts => buf => {
 	}
 
 	const args = [
-		'-strip', 'all',
+		'-strip',
+		'all',
 		'-clobber',
 		'-fix',
-		'-o', opts.optimizationLevel,
-		'-out', execBuffer.output
+		'-o',
+		opts.optimizationLevel,
+		'-out',
+		execBuffer.output
 	];
 
 	if (!opts.bitDepthReduction) {
@@ -45,8 +48,8 @@ module.exports = opts => buf => {
 		input: buf,
 		bin: optipng,
 		args
-	}).catch(err => {
-		err.message = err.stderr || err.message;
-		throw err;
+	}).catch(error => {
+		error.message = error.stderr || error.message;
+		throw error;
 	});
 };

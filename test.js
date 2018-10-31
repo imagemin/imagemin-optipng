@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import isPng from 'is-png';
 import test from 'ava';
-import m from './';
+import m from '.';
 
 const fixture = fs.readFileSync(path.join(__dirname, 'fixture.png'));
 
