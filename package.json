@@ -21,7 +21,7 @@
     }
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "scripts": {
     "test": "xo && ava"
@@ -42,7 +42,7 @@
   "dependencies": {
     "exec-buffer": "^3.0.0",
     "is-png": "^1.0.0",
-    "optipng-bin": "^4.0.0"
+    "optipng-bin": "^5.0.0"
   },
   "devDependencies": {
     "ava": "*",
