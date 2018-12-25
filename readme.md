@@ -1,12 +1,12 @@
 # imagemin-optipng [![Build Status](http://img.shields.io/travis/imagemin/imagemin-optipng.svg?style=flat)](https://travis-ci.org/imagemin/imagemin-optipng) [![Build status](https://ci.appveyor.com/api/projects/status/4e5msglic4m7yxst?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/imagemin-optipng)
 
-> optipng image-min plugin
+> Imagemin plugin for OptiPNG
 
 
 ## Install
 
 ```
-$ npm install --save imagemin-optipng
+$ npm install imagemin-optipng
 ```
 
 
@@ -29,6 +29,8 @@ imagemin(['images/*.png'], 'build/images', {use: [imageminOptipng()]}).then(() =
 Returns a `Promise` for a `Buffer`.
 
 #### options
+
+Type: `Object`
 
 ##### optimizationLevel
 
