@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"repository": "imagemin/imagemin-optipng",
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -17,7 +17,6 @@
 		"imageminplugin",
 		"compress",
 		"image",
-		"img",
 		"minify",
 		"optimize",
 		"optipng",
@@ -25,11 +24,11 @@
 	],
 	"dependencies": {
 		"exec-buffer": "^3.0.0",
-		"is-png": "^1.0.0",
-		"optipng-bin": "^5.0.0"
+		"is-png": "^2.0.0",
+		"optipng-bin": "^6.0.0"
 	},
 	"devDependencies": {
-		"ava": "^1.0.1",
-		"xo": "^0.23.0"
+		"ava": "^1.4.1",
+		"xo": "^0.24.0"
 	}
 }

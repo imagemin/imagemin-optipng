@@ -16,9 +16,15 @@ $ npm install imagemin-optipng
 const imagemin = require('imagemin');
 const imageminOptipng = require('imagemin-optipng');
 
-imagemin(['images/*.png'], 'build/images', {use: [imageminOptipng()]}).then(() => {
-	console.log('Images optimized');
-});
+(async () => {
+	await imagemin(['images/*.png'], 'build/images', {
+		use: [
+			imageminOptipng()
+		]
+	});
+
+	console.log('Images optimized!');
+})();
 ```
 
 
@@ -26,11 +32,11 @@ imagemin(['images/*.png'], 'build/images', {use: [imageminOptipng()]}).then(() =
 
 ### imageminOptipng([options])(buffer)
 
-Returns a `Promise` for a `Buffer`.
+Returns a `Promise<Buffer>`.
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### optimizationLevel
 
@@ -77,8 +83,3 @@ Apply palette reduction.
 Type: `Buffer`
 
 Buffer to optimize.
-
-
-## License
-
-MIT © [imagemin](https://github.com/imagemin)

@@ -3,23 +3,24 @@ const execBuffer = require('exec-buffer');
 const isPng = require('is-png');
 const optipng = require('optipng-bin');
 
-module.exports = options => input => {
-	options = Object.assign({
+module.exports = options => async buffer => {
+	options = {
 		optimizationLevel: 3,
 		bitDepthReduction: true,
 		colorTypeReduction: true,
-		paletteReduction: true
-	}, options);
+		paletteReduction: true,
+		...options
+	};
 
-	if (!Buffer.isBuffer(input)) {
-		return Promise.reject(new TypeError('Expected a buffer'));
+	if (!Buffer.isBuffer(buffer)) {
+		throw new TypeError('Expected a buffer');
 	}
 
-	if (!isPng(input)) {
-		return Promise.resolve(input);
+	if (!isPng(buffer)) {
+		return buffer;
 	}
 
-	const args = [
+	const arguments_ = [
 		'-strip',
 		'all',
 		'-clobber',
@@ -31,25 +32,22 @@ module.exports = options => input => {
 	];
 
 	if (!options.bitDepthReduction) {
-		args.push('-nb');
+		arguments_.push('-nb');
 	}
 
 	if (!options.colorTypeReduction) {
-		args.push('-nc');
+		arguments_.push('-nc');
 	}
 
 	if (!options.paletteReduction) {
-		args.push('-np');
+		arguments_.push('-np');
 	}
 
-	args.push(execBuffer.input);
+	arguments_.push(execBuffer.input);
 
 	return execBuffer({
-		input,
+		input: buffer,
 		bin: optipng,
-		args
-	}).catch(error => {
-		error.message = error.stderr || error.message;
-		throw error;
+		args: arguments_
 	});
 };
