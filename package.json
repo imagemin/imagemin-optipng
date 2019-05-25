@@ -1,6 +1,6 @@
 {
 	"name": "imagemin-optipng",
-	"version": "6.0.0",
+	"version": "7.0.0",
 	"description": "Imagemin plugin for OptiPNG",
 	"license": "MIT",
 	"repository": "imagemin/imagemin-optipng",
