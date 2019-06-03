@@ -5,6 +5,7 @@ import test from 'ava';
 import optipng from '.';
 
 const fixture = fs.readFileSync(path.join(__dirname, 'fixture.png'));
+const fixtureBroken = fs.readFileSync(path.join(__dirname, 'fixture_broken.png'));
 
 test('optimize a PNG', async t => {
 	const data = await optipng()(fixture);
@@ -26,4 +27,16 @@ test('colorTypeReduction option', async t => {
 
 test('paletteReduction option', async t => {
 	await t.notThrowsAsync(optipng({paletteReduction: true})(fixture));
+});
+
+test('recoverImage default', async t => {
+	await t.notThrowsAsync(optipng()(fixtureBroken));
+});
+
+test('recoverImage explicit', async t => {
+	await t.notThrowsAsync(optipng({recoverImage: true})(fixtureBroken));
+});
+
+test('recoverImage is set to false', async t => {
+	await t.throwsAsync(optipng({recoverImage: false})(fixtureBroken));
 });

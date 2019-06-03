@@ -78,6 +78,13 @@ Default: `true`
 
 Apply palette reduction.
 
+##### recoveryImage
+
+Type: `boolean`<br>
+Default: `true`
+
+Will set the image recovery option. Same as '-fix' on cli.
+
 #### buffer
 
 Type: `Buffer`
