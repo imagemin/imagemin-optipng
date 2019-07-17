@@ -37,7 +37,7 @@ module.exports = options => async buffer => {
 	}
 
 	if (options.interlaced) {
-		args.push('-i', '1');
+		arguments_.push('-i', '1');
 	}
 
 	if (!options.colorTypeReduction) {
