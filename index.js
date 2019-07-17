@@ -9,6 +9,7 @@ module.exports = options => async buffer => {
 		bitDepthReduction: true,
 		colorTypeReduction: true,
 		paletteReduction: true,
+		interlaced: false,
 		...options
 	};
 
@@ -33,6 +34,10 @@ module.exports = options => async buffer => {
 
 	if (!options.bitDepthReduction) {
 		arguments_.push('-nb');
+	}
+
+	if (options.interlaced) {
+		args.push('-i', '1');
 	}
 
 	if (!options.colorTypeReduction) {
