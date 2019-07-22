@@ -30,11 +30,13 @@ test('paletteReduction option', async t => {
 });
 
 test('recoverImage default', async t => {
-	await t.notThrowsAsync(optipng()(fixtureBroken));
+	const data = await optipng()(fixtureBroken);
+	t.true(isPng(data));
 });
 
 test('recoverImage explicit', async t => {
-	await t.notThrowsAsync(optipng({errorRecovery: true})(fixtureBroken));
+	const data = await optipng({errorRecovery: true})(fixtureBroken);
+	t.true(isPng(data));
 });
 
 test('recoverImage is set to false', async t => {
