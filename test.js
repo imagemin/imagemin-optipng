@@ -34,9 +34,9 @@ test('recoverImage default', async t => {
 });
 
 test('recoverImage explicit', async t => {
-	await t.notThrowsAsync(optipng({recoverImage: true})(fixtureBroken));
+	await t.notThrowsAsync(optipng({errorRecovery: true})(fixtureBroken));
 });
 
 test('recoverImage is set to false', async t => {
-	await t.throwsAsync(optipng({recoverImage: false})(fixtureBroken));
+	await t.throwsAsync(optipng({errorRecovery: false})(fixtureBroken));
 });

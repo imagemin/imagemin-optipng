@@ -9,7 +9,7 @@ module.exports = options => async buffer => {
 		bitDepthReduction: true,
 		colorTypeReduction: true,
 		paletteReduction: true,
-		recoverImage: true,
+		errorRecovery: true,
 		...options
 	};
 
@@ -31,7 +31,7 @@ module.exports = options => async buffer => {
 		execBuffer.output
 	];
 
-	if (options.recoverImage) {
+	if (options.errorRecovery) {
 		arguments_.push('-fix');
 	}
 

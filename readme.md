@@ -78,12 +78,13 @@ Default: `true`
 
 Apply palette reduction.
 
-##### recoveryImage
+##### errorRecovery
 
 Type: `boolean`<br>
 Default: `true`
 
-Will set the image recovery option. Same as '-fix' on cli.
+Enable error recovery.
+The program will spend a reasonable amount of effort to recover as much data as possible of an broken image. But the success cannot be generally guaranteed.
 
 #### buffer
 
