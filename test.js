@@ -29,16 +29,16 @@ test('paletteReduction option', async t => {
 	await t.notThrowsAsync(optipng({paletteReduction: true})(fixture));
 });
 
-test('recoverImage default', async t => {
+test('errorRecovery default', async t => {
 	const data = await optipng()(fixtureBroken);
 	t.true(isPng(data));
 });
 
-test('recoverImage explicit', async t => {
+test('errorRecovery explicit', async t => {
 	const data = await optipng({errorRecovery: true})(fixtureBroken);
 	t.true(isPng(data));
 });
 
-test('recoverImage is set to false', async t => {
+test('errorRecovery is set to false', async t => {
 	await t.throwsAsync(optipng({errorRecovery: false})(fixtureBroken));
 });
