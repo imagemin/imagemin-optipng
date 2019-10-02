@@ -83,8 +83,7 @@ Apply palette reduction.
 Type: `boolean`<br>
 Default: `true`
 
-Enable error recovery.
-The program will spend a reasonable amount of effort to recover as much data as possible of a broken image. But the success cannot be generally guaranteed.
+The program will spend a reasonable amount of effort to recover as much data as possible of a broken image, but the success cannot generally be guaranteed.
 
 #### buffer
 
