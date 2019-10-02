@@ -30,7 +30,7 @@ const imageminOptipng = require('imagemin-optipng');
 
 ## API
 
-### imageminOptipng([options])(buffer)
+### imageminOptipng(options?)(buffer)
 
 Returns a `Promise<Buffer>`.
 
@@ -83,7 +83,7 @@ Apply palette reduction.
 Type: `boolean`<br>
 Default: `true`
 
-The program will spend a reasonable amount of effort to recover as much data as possible of a broken image, but the success cannot generally be guaranteed.
+A reasonable amount of effort will be spent to try to recover as much data as possible of a broken image, but the success cannot generally be guaranteed.
 
 #### buffer
 
