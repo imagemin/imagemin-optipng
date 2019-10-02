@@ -78,6 +78,13 @@ Default: `true`
 
 Apply palette reduction.
 
+##### errorRecovery
+
+Type: `boolean`<br>
+Default: `true`
+
+The program will spend a reasonable amount of effort to recover as much data as possible of a broken image, but the success cannot generally be guaranteed.
+
 #### buffer
 
 Type: `Buffer`
