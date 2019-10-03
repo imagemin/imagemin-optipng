@@ -30,7 +30,7 @@ const imageminOptipng = require('imagemin-optipng');
 
 ## API
 
-### imageminOptipng([options])(buffer)
+### imageminOptipng(options?)(buffer)
 
 Returns a `Promise<Buffer>`.
 
@@ -83,8 +83,14 @@ Apply palette reduction.
 Type: `boolean`<br>
 Default: `false`
 
-Make images interlaced (progressive)
-Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.
+Make images interlaced (progressive rendering). Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.
+
+##### errorRecovery
+
+Type: `boolean`<br>
+Default: `true`
+
+A reasonable amount of effort will be spent to try to recover as much data as possible of a broken image, but the success cannot generally be guaranteed.
 
 #### buffer
 

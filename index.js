@@ -10,6 +10,7 @@ module.exports = options => async buffer => {
 		colorTypeReduction: true,
 		paletteReduction: true,
 		interlaced: false,
+		errorRecovery: true,
 		...options
 	};
 
@@ -25,12 +26,15 @@ module.exports = options => async buffer => {
 		'-strip',
 		'all',
 		'-clobber',
-		'-fix',
 		'-o',
 		options.optimizationLevel,
 		'-out',
 		execBuffer.output
 	];
+
+	if (options.errorRecovery) {
+		arguments_.push('-fix');
+	}
 
 	if (!options.bitDepthReduction) {
 		arguments_.push('-nb');
