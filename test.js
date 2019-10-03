@@ -42,3 +42,24 @@ test('errorRecovery explicit', async t => {
 test('errorRecovery is set to false', async t => {
 	await t.throwsAsync(optipng({errorRecovery: false})(fixtureBroken));
 });
+
+test('interlaced is set to true', async t => {
+	const [data1, data2] = await Promise.all([
+		optipng({interlaced: true})(fixture),
+		optipng()(fixture)
+	]);
+
+	t.true(isPng(data1));
+	t.true(data1.length > data2.length);
+});
+
+test('interlaced is set to undefined and null', async t => {
+	const [data1, data2, data3] = await Promise.all([
+		optipng({interlaced: undefined})(fixture),
+		optipng({interlaced: null})(fixture),
+		optipng({interlaced: true})(fixture)
+	]);
+
+	t.true(isPng(data1) && isPng(data2));
+	t.true(data1.length === data2.length && data1.length < data3.length);
+});

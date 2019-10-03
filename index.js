@@ -40,8 +40,8 @@ module.exports = options => async buffer => {
 		arguments_.push('-nb');
 	}
 
-	if (options.interlaced) {
-		arguments_.push('-i', '1');
+	if (typeof options.interlaced === 'boolean') {
+		arguments_.push('-i', options.interlaced ? '1' : '0');
 	}
 
 	if (!options.colorTypeReduction) {

@@ -80,10 +80,10 @@ Apply palette reduction.
 
 ##### interlaced
 
-Type: `boolean`<br>
+Type: `boolean | undefined | null`<br>
 Default: `false`
 
-Make images interlaced (progressive rendering). Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.
+Enable [Adam7](https://en.wikipedia.org/wiki/Adam7_algorithm) PNG interlacing on any images that are processed. Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient. Set to `undefined  or `null` to keep the same interlacing as the input image.
 
 ##### errorRecovery
 
