@@ -78,6 +78,13 @@ Default: `true`
 
 Apply palette reduction.
 
+##### interlaced
+
+Type: `boolean`<br>
+Default: `false`
+
+Make images interlaced (progressive rendering). Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.
+
 ##### errorRecovery
 
 Type: `boolean`<br>
