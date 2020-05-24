@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"repository": "imagemin/imagemin-optipng",
 	"engines": {
-		"node": ">=8"
+		"node": ">=10"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -25,10 +25,10 @@
 	"dependencies": {
 		"exec-buffer": "^3.0.0",
 		"is-png": "^2.0.0",
-		"optipng-bin": "^6.0.0"
+		"optipng-bin": "^7.0.0"
 	},
 	"devDependencies": {
-		"ava": "^2.4.0",
-		"xo": "^0.25.3"
+		"ava": "^3.8.0",
+		"xo": "^0.30.0"
 	}
 }

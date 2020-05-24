@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import isPng from 'is-png';
-import test from 'ava';
-import optipng from '.';
+const fs = require('fs');
+const path = require('path');
+const isPng = require('is-png');
+const test = require('ava');
+const optipng = require('.');
 
 const fixture = fs.readFileSync(path.join(__dirname, 'fixture.png'));
 const fixtureBroken = fs.readFileSync(path.join(__dirname, 'fixture_broken.png'));
@@ -14,7 +14,7 @@ test('optimize a PNG', async t => {
 });
 
 test('throw on empty input', async t => {
-	await t.throwsAsync(optipng()(), /Expected a buffer/);
+	await t.throwsAsync(optipng()(), {message: /Expected a buffer/});
 });
 
 test('bitDepthReduction option', async t => {
