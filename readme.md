@@ -17,8 +17,9 @@ const imagemin = require('imagemin');
 const imageminOptipng = require('imagemin-optipng');
 
 (async () => {
-	await imagemin(['images/*.png'], 'build/images', {
-		use: [
+	await imagemin(['images/*.png'], {
+		destination: 'build/images',
+		plugins: [
 			imageminOptipng()
 		]
 	});
