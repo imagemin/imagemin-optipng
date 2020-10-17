@@ -93,6 +93,13 @@ Default: `true`
 
 A reasonable amount of effort will be spent to try to recover as much data as possible of a broken image, but the success cannot generally be guaranteed.
 
+##### strip
+
+Type: `boolean`<br>
+Default: `false`
+
+Strip metadata objects from a PNG file.
+
 #### buffer
 
 Type: `Buffer`
