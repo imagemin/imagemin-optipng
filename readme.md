@@ -1,4 +1,4 @@
-# imagemin-optipng [![Build Status](http://img.shields.io/travis/imagemin/imagemin-optipng.svg?style=flat)](https://travis-ci.org/imagemin/imagemin-optipng)
+# imagemin-optipng ![GitHub Actions Status](https://github.com/imagemin/imagemin-optipng/workflows/test/badge.svg?branch=master)
 
 > Imagemin plugin for OptiPNG
 
