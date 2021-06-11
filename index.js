@@ -11,6 +11,7 @@ module.exports = options => async buffer => {
 		paletteReduction: true,
 		interlaced: false,
 		errorRecovery: true,
+		strip: true,
 		...options
 	};
 
@@ -23,14 +24,17 @@ module.exports = options => async buffer => {
 	}
 
 	const arguments_ = [
-		'-strip',
-		'all',
 		'-clobber',
 		'-o',
 		options.optimizationLevel,
 		'-out',
 		execBuffer.output
 	];
+
+	if (options.strip) {
+		arguments_.unshift('all');
+		arguments_.unshift('-strip');
+	}
 
 	if (options.errorRecovery) {
 		arguments_.push('-fix');
