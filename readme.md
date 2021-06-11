@@ -1,14 +1,12 @@
-# imagemin-optipng ![GitHub Actions Status](https://github.com/imagemin/imagemin-optipng/workflows/test/badge.svg?branch=master)
+# imagemin-optipng
 
 > Imagemin plugin for OptiPNG
-
 
 ## Install
 
 ```
 $ npm install imagemin-optipng
 ```
-
 
 ## Usage
 
@@ -28,7 +26,6 @@ const imageminOptipng = require('imagemin-optipng');
 })();
 ```
 
-
 ## API
 
 ### imageminOptipng(options?)(buffer)
@@ -41,7 +38,7 @@ Type: `object`
 
 ##### optimizationLevel
 
-Type: `number`<br>
+Type: `number`\
 Default: `3`
 
 Select an optimization level between `0` and `7`.
@@ -60,35 +57,35 @@ Level and trials:
 
 ##### bitDepthReduction
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `true`
 
 Apply bit depth reduction.
 
 ##### colorTypeReduction
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `true`
 
 Apply color type reduction.
 
 ##### paletteReduction
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `true`
 
 Apply palette reduction.
 
 ##### interlaced
 
-Type: `boolean | undefined | null`<br>
+Type: `boolean | undefined | null`\
 Default: `false`
 
 Enable [Adam7](https://en.wikipedia.org/wiki/Adam7_algorithm) PNG interlacing on any images that are processed. Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient. Set to `undefined` or `null` to keep the same interlacing as the input image.
 
 ##### errorRecovery
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `true`
 
 A reasonable amount of effort will be spent to try to recover as much data as possible of a broken image, but the success cannot generally be guaranteed.
