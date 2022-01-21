@@ -1,9 +1,9 @@
-'use strict';
-const execBuffer = require('exec-buffer');
-const isPng = require('is-png');
-const optipng = require('optipng-bin');
+import {Buffer} from 'node:buffer';
+import execBuffer from 'exec-buffer';
+import isPng from 'is-png';
+import optipng from 'optipng-bin';
 
-module.exports = options => async buffer => {
+const main = options => async buffer => {
 	options = {
 		optimizationLevel: 3,
 		bitDepthReduction: true,
@@ -11,7 +11,7 @@ module.exports = options => async buffer => {
 		paletteReduction: true,
 		interlaced: false,
 		errorRecovery: true,
-		...options
+		...options,
 	};
 
 	if (!Buffer.isBuffer(buffer)) {
@@ -29,7 +29,7 @@ module.exports = options => async buffer => {
 		'-o',
 		options.optimizationLevel,
 		'-out',
-		execBuffer.output
+		execBuffer.output,
 	];
 
 	if (options.errorRecovery) {
@@ -57,6 +57,8 @@ module.exports = options => async buffer => {
 	return execBuffer({
 		input: buffer,
 		bin: optipng,
-		args: arguments_
+		args: arguments_,
 	});
 };
+
+export default main;

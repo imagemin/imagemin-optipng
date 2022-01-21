@@ -1,11 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const isPng = require('is-png');
-const test = require('ava');
-const optipng = require('.');
+import fs from 'node:fs';
+import isPng from 'is-png';
+import test from 'ava';
+import optipng from './index.js';
 
-const fixture = fs.readFileSync(path.join(__dirname, 'fixture.png'));
-const fixtureBroken = fs.readFileSync(path.join(__dirname, 'fixture_broken.png'));
+const fixture = fs.readFileSync(new URL('fixture.png', import.meta.url));
+const fixtureBroken = fs.readFileSync(new URL('fixture_broken.png', import.meta.url));
 
 test('optimize a PNG', async t => {
 	const data = await optipng()(fixture);
@@ -46,7 +45,7 @@ test('errorRecovery is set to false', async t => {
 test('interlaced is set to true', async t => {
 	const [data1, data2] = await Promise.all([
 		optipng({interlaced: true})(fixture),
-		optipng()(fixture)
+		optipng()(fixture),
 	]);
 
 	t.true(isPng(data1));
@@ -57,7 +56,7 @@ test('interlaced is set to undefined and null', async t => {
 	const [data1, data2, data3] = await Promise.all([
 		optipng({interlaced: undefined})(fixture),
 		optipng({interlaced: null})(fixture),
-		optipng({interlaced: true})(fixture)
+		optipng({interlaced: true})(fixture),
 	]);
 
 	t.true(isPng(data1) && isPng(data2));
