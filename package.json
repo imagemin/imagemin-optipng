@@ -4,8 +4,9 @@
 	"description": "Imagemin plugin for OptiPNG",
 	"license": "MIT",
 	"repository": "imagemin/imagemin-optipng",
+	"type": "module",
 	"engines": {
-		"node": ">=10"
+		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -24,11 +25,11 @@
 	],
 	"dependencies": {
 		"exec-buffer": "^3.0.0",
-		"is-png": "^2.0.0",
-		"optipng-bin": "^7.0.0"
+		"is-png": "^3.0.1",
+		"optipng-bin": "^8.1.0"
 	},
 	"devDependencies": {
-		"ava": "^3.8.0",
-		"xo": "^0.30.0"
+		"ava": "^4.0.1",
+		"xo": "^0.47.0"
 	}
 }

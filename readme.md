@@ -1,4 +1,4 @@
-# imagemin-optipng
+# imagemin-optipng ![GitHub Actions Status](https://github.com/imagemin/imagemin-optipng/workflows/test/badge.svg?branch=main)
 
 > Imagemin plugin for OptiPNG
 
@@ -11,8 +11,8 @@ $ npm install imagemin-optipng
 ## Usage
 
 ```js
-const imagemin = require('imagemin');
-const imageminOptipng = require('imagemin-optipng');
+import imagemin from 'imagemin';
+import imageminOptipng from 'imagemin-optipng';
 
 (async () => {
 	await imagemin(['images/*.png'], {
